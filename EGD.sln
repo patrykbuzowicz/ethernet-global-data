@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGD.Consumer", "EGD.Consumer\EGD.Consumer.csproj", "{8EA47826-9DAA-4759-B5A1-0A2E729B7197}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGD.UserInterface", "EGD.UserInterface\EGD.UserInterface.csproj", "{A2B60A0C-624D-4445-81A0-54711431E674}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{8EA47826-9DAA-4759-B5A1-0A2E729B7197}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EA47826-9DAA-4759-B5A1-0A2E729B7197}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EA47826-9DAA-4759-B5A1-0A2E729B7197}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2B60A0C-624D-4445-81A0-54711431E674}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2B60A0C-624D-4445-81A0-54711431E674}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2B60A0C-624D-4445-81A0-54711431E674}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2B60A0C-624D-4445-81A0-54711431E674}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
