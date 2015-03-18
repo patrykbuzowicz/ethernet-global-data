@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EGD.Consumer
+namespace EGD.Consumer.Data
 {
-    public class Class1
+    public class EgdPacket
     {
     }
 }
