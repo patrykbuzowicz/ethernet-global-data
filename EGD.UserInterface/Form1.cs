@@ -15,6 +15,7 @@ namespace EGD.UserInterface
         public Form1()
         {
             InitializeComponent();
+            Console.WriteLine("siemka");
         }
     }
 }
