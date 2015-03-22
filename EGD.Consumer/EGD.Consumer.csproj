@@ -43,6 +43,7 @@
     <Compile Include="Event\DataReceivedEventArgs.cs" />
     <Compile Include="IConsumer.cs" />
     <Compile Include="Data\EgdPacket.cs" />
+    <Compile Include="IUdp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Udp.cs" />
   </ItemGroup>
