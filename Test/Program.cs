@@ -10,15 +10,9 @@ namespace Test
 {
     class Program
     {
-        private static string IpAddr
-        {
-            get { return "127.0.0.1"; }
-        }
+        private static string IpAddr { get { return "127.0.0.1"; } }
 
-        private static int Port
-        {
-            get { return 4746; }
-        }
+        private static int Port { get { return 18246; } }
 
         static UdpSender udp = new UdpSender();
         static IUdp udpServer = new Udp();
