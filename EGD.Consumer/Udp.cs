@@ -28,9 +28,10 @@ namespace EGD.Consumer
             done = false;
             handler=null;
             udpClient = new UdpClient(4746);
-            udpClient.Connect(address, 4746);
             RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 0);
-            Thread Thr = new Thread(()=>ReceivingBytes());
+            Console.WriteLine("udp open ");
+            Thread Thr = new Thread(ReceivingBytes);
+            Thr.Start();
             
         }
         private void ReceivingBytes(){
