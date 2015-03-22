@@ -56,4 +56,10 @@ namespace EGD.Consumer
             //przekazanie ramki do egd
         }
     }
+    
+    public class EGDConsumer : IConsumer
+    {
+
+            
+    }
 }
