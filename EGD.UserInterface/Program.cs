@@ -9,7 +9,6 @@ namespace EGD.UserInterface
 {
     static class Program
     {
-        static RawByteParser Parser;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
