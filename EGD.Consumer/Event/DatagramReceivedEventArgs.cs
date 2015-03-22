@@ -7,14 +7,13 @@ using System.Threading.Tasks;
 
 namespace EGD.Consumer
 {
-    public class DataReceivedEventArgs : EventArgs
+    public class DatagramReceivedEventArgs : EventArgs
     {
-        public DataReceivedEventArgs(EgdPacket packet)
+        public DatagramReceivedEventArgs(Byte[] receiveBytes)
         {
-            this.Packet = packet;
+            this.Bytes = receiveBytes;
 
         }
-
-        public EgdPacket Packet { get; internal set; }
+        public Byte[] Bytes{get; internal set;}
     }
 }
