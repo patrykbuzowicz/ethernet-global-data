@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGD.Consumer", "EGD.Consume
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGD.UserInterface", "EGD.UserInterface\EGD.UserInterface.csproj", "{A2B60A0C-624D-4445-81A0-54711431E674}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{D1C5D0CF-F2B4-4773-A28D-5E02367427E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A2B60A0C-624D-4445-81A0-54711431E674}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2B60A0C-624D-4445-81A0-54711431E674}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2B60A0C-624D-4445-81A0-54711431E674}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1C5D0CF-F2B4-4773-A28D-5E02367427E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1C5D0CF-F2B4-4773-A28D-5E02367427E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1C5D0CF-F2B4-4773-A28D-5E02367427E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1C5D0CF-F2B4-4773-A28D-5E02367427E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
