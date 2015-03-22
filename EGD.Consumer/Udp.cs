@@ -5,19 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
+using System.Threading;
 
 namespace EGD.Consumer
 {
-    class Udp
+    public class Udp: IUdp
     {
         
-        event EventHandler<DatagramReceivedEventArgs> DatagramReceived;
+        public event EventHandler<DatagramReceivedEventArgs> DatagramReceived;
         DatagramReceivedEventArgs args;
-        public UdpClient udpClient;
-        event EventHandler<DatagramReceivedEventArgs> handler;
-        public Byte[] receiveBytes;
-        bool done;
-        public IPEndPoint RemoteIpEndPoint;
+        private UdpClient udpClient;
+        private event EventHandler<DatagramReceivedEventArgs> handler;
+        private Byte[] receiveBytes;
+        private bool done;
+        private IPEndPoint RemoteIpEndPoint;
         public Udp()
         {
             done = false;
@@ -27,8 +28,13 @@ namespace EGD.Consumer
             done = false;
             handler=null;
             udpClient = new UdpClient(4746);
-            udpClient.Connect(address, 4746);
             RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 0);
+            Console.WriteLine("udp open ");
+            Thread Thr = new Thread(ReceivingBytes);
+            Thr.Start();
+            
+        }
+        private void ReceivingBytes(){
             while(!done)
             {
                 receiveBytes = udpClient.Receive(ref RemoteIpEndPoint);
@@ -50,7 +56,11 @@ namespace EGD.Consumer
 }
     public class UdpObserver
     {
-        public void HandleEvent(object sender, DatagramReceivedEventArgs args)
+        public UdpObserver(Udp udpObservable)
+        {
+            udpObservable.DatagramReceived += HandleEvent;
+        }
+        private void HandleEvent(object sender, DatagramReceivedEventArgs args)
         {
             string str=System.Text.Encoding.UTF8.GetString(args.Bytes);
             Console.WriteLine("Datagram received " + str);
