@@ -9,51 +9,51 @@ using System.Threading;
 
 namespace EGD.Consumer
 {
-    public class Udp: IUdp
+    public class Udp : IUdp
     {
-        
+
         public event EventHandler<DatagramReceivedEventArgs> DatagramReceived;
         DatagramReceivedEventArgs args;
         private UdpClient udpClient;
         private event EventHandler<DatagramReceivedEventArgs> handler;
         private Byte[] receiveBytes;
-        private bool done;
         private IPEndPoint RemoteIpEndPoint;
+        private Thread _thr;
+        private int Port { get { return 18246; } }
         public Udp()
         {
-            done = false;
         }
         public void Open(string address)
         {
-            done = false;
-            handler=null;
-            udpClient = new UdpClient(4746);
+            handler = null;
+            udpClient = new UdpClient(Port);
             RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 0);
             Console.WriteLine("udp open ");
-            Thread Thr = new Thread(ReceivingBytes);
-            Thr.Start();
-            
+            _thr = new Thread(ReceivingBytes);
+            _thr.Start();
+
         }
-        private void ReceivingBytes(){
-            while(!done)
+        private void ReceivingBytes()
+        {
+            while (true)
             {
                 receiveBytes = udpClient.Receive(ref RemoteIpEndPoint);
-                if(receiveBytes!=null)
+                if (receiveBytes != null)
                 {
-                args=new DatagramReceivedEventArgs(receiveBytes);
-                handler = DatagramReceived;
-                handler(this, args);
-                handler = null;
-                receiveBytes = null;
+                    args = new DatagramReceivedEventArgs(receiveBytes);
+                    handler = DatagramReceived;
+                    handler(this, args);
+                    handler = null;
+                    receiveBytes = null;
                 }
             }
         }
-        public void Close() 
+        public void Close()
         {
-            done = true;
+            _thr.Abort();
             udpClient.Close();
         }
-}
+    }
     public class UdpObserver
     {
         public UdpObserver(Udp udpObservable)
@@ -62,7 +62,7 @@ namespace EGD.Consumer
         }
         private void HandleEvent(object sender, DatagramReceivedEventArgs args)
         {
-            string str=System.Text.Encoding.UTF8.GetString(args.Bytes);
+            string str = System.Text.Encoding.UTF8.GetString(args.Bytes);
             Console.WriteLine("Datagram received " + str);
             //przekazanie ramki do egd
         }
