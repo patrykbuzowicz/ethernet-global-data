@@ -17,7 +17,7 @@ namespace EGD.UserInterface
     {
         private RawByteParser Parser = new RawByteParser();
 
-        private IConsumer consumer;
+        private IConsumer consumer = Manager.GetConsumer();
         public Form1()
         {
             InitializeComponent();
@@ -34,12 +34,10 @@ namespace EGD.UserInterface
 
         private void UpdateNumber(EgdPacket egdPacket)
         {
-            throw new NotImplementedException();
         }
 
         private void UpdateFlags(EgdPacket egdPacket)
         {
-            throw new NotImplementedException();
         }
 
         private void UpdateLastReceivedDate()

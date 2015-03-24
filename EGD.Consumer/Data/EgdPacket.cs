@@ -8,5 +8,6 @@ namespace EGD.Consumer.Data
 {
     public class EgdPacket
     {
+        public byte[] Data { get; set; }
     }
 }
