@@ -17,7 +17,7 @@ namespace Test
 
         private static int Port
         {
-            get { return 4746; }
+            get { return 18246; }
         }
 
         static UdpSender udp = new UdpSender();
