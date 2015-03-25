@@ -28,16 +28,45 @@ namespace EGD.UserInterface
         void consumer_DataReceived(object sender, DataReceivedEventArgs e)
         {
             UpdateLastReceivedDate();
-            UpdateFlags(e.Packet);
-            UpdateNumber(e.Packet);
+            UpdateOutput(e.Packet);
+         //   UpdateFlags(e.Packet);
+         //   UpdateNumber(e.Packet);
         }
-
+        /*
         private void UpdateNumber(EgdPacket egdPacket)
         {
         }
 
         private void UpdateFlags(EgdPacket egdPacket)
         {
+        }
+        */
+        private void UpdateOutput(EgdPacket egdPacket)
+        {
+            byte[] b = new byte[]{1,2,3,4};
+            if (Parser.SetAndParseRawData(b))
+        //    if (Parser.SetAndParseRawData(egdPacket.getPacket()))
+            {
+                this.textBox1.Text = Parser.getDWord();
+                this.checkBox1.Checked = Parser.isOnAtIndex(0);
+                this.checkBox2.Checked = Parser.isOnAtIndex(1);
+                this.checkBox3.Checked = Parser.isOnAtIndex(2);
+                this.checkBox4.Checked = Parser.isOnAtIndex(3);
+                this.checkBox5.Checked = Parser.isOnAtIndex(4);
+                this.checkBox6.Checked = Parser.isOnAtIndex(5);
+                this.checkBox7.Checked = Parser.isOnAtIndex(6);
+                this.checkBox8.Checked = Parser.isOnAtIndex(7);
+                this.checkBox9.Checked = Parser.isOnAtIndex(8);
+                this.checkBox10.Checked = Parser.isOnAtIndex(9);
+                this.checkBox11.Checked = Parser.isOnAtIndex(10);
+                this.checkBox12.Checked = Parser.isOnAtIndex(11);
+                this.checkBox13.Checked = Parser.isOnAtIndex(12);
+                this.checkBox14.Checked = Parser.isOnAtIndex(13);
+                this.checkBox15.Checked = Parser.isOnAtIndex(14);
+                this.checkBox16.Checked = Parser.isOnAtIndex(15);
+                this.Refresh();
+            };
+            
         }
 
         private void UpdateLastReceivedDate()

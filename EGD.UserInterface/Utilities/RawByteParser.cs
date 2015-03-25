@@ -142,5 +142,30 @@ namespace EGD.UserInterface.Utilities
             }
             return false;
         }
+
+        public Boolean SetAndParseRawData(byte[] tabByte)
+        {
+            List<byte> newList = new List<byte>();
+            if (tabByte.Length!=RawByteParser.byte_amount) {
+                // exception?
+            }
+            for (int i = 0; i < RawByteParser.byte_amount; i++)
+            {
+                try
+                {
+                    newList.Add(tabByte[i]);
+                }
+                catch (IndexOutOfRangeException e)
+                {
+                    DWord = "Error";
+                    for (int j = 0; j < this.checkboxListSize; j++)
+                    {
+                        this.CheckboxList.Add(false);
+                    }
+                    break;
+                }
+            }
+            return SetAndParseData(newList);
+        }
     }
 }
