@@ -11,7 +11,6 @@ namespace EGD.Consumer
     public interface IConsumer
     {
         void Open(string address);
-
         event EventHandler<DataReceivedEventArgs> DataReceived;
         void Close();
     }
