@@ -76,30 +76,40 @@ namespace EGD.UserInterface
             lbLastUpdated.Text = string.Format("Last updated: {0}", DateTime.Now.ToString("HH:mm:ss.ffff"));
         }
 
+        // Method responsible for opening UDP connection with selected (in listBox) IP
         private void OpenConnectionButton_Click(object sender, EventArgs e)
         {
-            consumer.Open(listBox1.SelectedItem.ToString());
+            if (listBox1.SelectedItem == null)
+            {
+                MessageBox.Show("You have to choose IP address before trying to open connection");
+            } else
+                consumer.Open(listBox1.SelectedItem.ToString());  
         }
 
+        // Method responsible for closing UDP connection.
         private void CloseConnectionButton_Click(object sender, EventArgs e)
         {
             consumer.Close();
         }
 
+        // Method responsible for getting available IP addresses during first load of application.
+        // Addresses are added to listBox1.
         private void Form1_Load(object sender, EventArgs e)
         {
             string name = Dns.GetHostName();
             var dnsAdresses = Dns.GetHostEntry(name).AddressList;
 
             listBox1.BeginUpdate();
-            for (int x = 2; x < dnsAdresses.Length; x = x + 2) {
+            for (int x = 2; x < dnsAdresses.Length; x = x + 2) 
+            {
                 listBox1.Items.Add(dnsAdresses[x]);
             }
             listBox1.EndUpdate();
         }
-        private void listBox1_MouseLeave(object sender, EventArgs e)
+        
+        /*private void listBox1_MouseLeave(object sender, EventArgs e)
         {
-            //listBox1.Refresh();
-        }
+            listBox1.RefreshItems();
+        }*/
     }
 }

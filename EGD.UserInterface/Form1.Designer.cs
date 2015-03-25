@@ -297,7 +297,6 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(290, 82);
             this.listBox1.TabIndex = 6;
-            this.listBox1.MouseLeave += new System.EventHandler(this.listBox1_MouseLeave);
             // 
             // Form1
             // 
