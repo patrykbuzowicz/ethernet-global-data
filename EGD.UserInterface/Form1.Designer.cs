@@ -272,7 +272,7 @@
             // 
             // OpenConnetionButton
             // 
-            this.OpenConnetionButton.Location = new System.Drawing.Point(321, 46);
+            this.OpenConnetionButton.Location = new System.Drawing.Point(221, 9);
             this.OpenConnetionButton.Name = "OpenConnetionButton";
             this.OpenConnetionButton.Size = new System.Drawing.Size(75, 23);
             this.OpenConnetionButton.TabIndex = 4;
@@ -282,7 +282,7 @@
             // 
             // CloseConnectionButton
             // 
-            this.CloseConnectionButton.Location = new System.Drawing.Point(428, 46);
+            this.CloseConnectionButton.Location = new System.Drawing.Point(311, 9);
             this.CloseConnectionButton.Name = "CloseConnectionButton";
             this.CloseConnectionButton.Size = new System.Drawing.Size(75, 23);
             this.CloseConnectionButton.TabIndex = 5;
@@ -295,7 +295,7 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(106, 61);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 95);
+            this.listBox1.Size = new System.Drawing.Size(290, 82);
             this.listBox1.TabIndex = 6;
             this.listBox1.MouseLeave += new System.EventHandler(this.listBox1_MouseLeave);
             // 

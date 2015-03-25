@@ -78,12 +78,12 @@ namespace EGD.UserInterface
 
         private void OpenConnectionButton_Click(object sender, EventArgs e)
         {
-            //consumer.Open(string);
+            consumer.Open(listBox1.SelectedItem.ToString());
         }
 
         private void CloseConnectionButton_Click(object sender, EventArgs e)
         {
-            //consumer.Close();
+            consumer.Close();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -92,8 +92,8 @@ namespace EGD.UserInterface
             var dnsAdresses = Dns.GetHostEntry(name).AddressList;
 
             listBox1.BeginUpdate();
-            for (int x = 1; x <= dnsAdresses.Length; x++) {
-                listBox1.Items.Add(dnsAdresses[x - 1]);
+            for (int x = 2; x < dnsAdresses.Length; x = x + 2) {
+                listBox1.Items.Add(dnsAdresses[x]);
             }
             listBox1.EndUpdate();
         }
