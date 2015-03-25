@@ -11,6 +11,8 @@ using EGD.Consumer;
 using EGD.Consumer.Data;
 using EGD.UserInterface.Utilities;
 
+using System.Net;
+
 namespace EGD.UserInterface
 {
     public partial class Form1 : Form
@@ -72,6 +74,32 @@ namespace EGD.UserInterface
         private void UpdateLastReceivedDate()
         {
             lbLastUpdated.Text = string.Format("Last updated: {0}", DateTime.Now.ToString("HH:mm:ss.ffff"));
+        }
+
+        private void OpenConnectionButton_Click(object sender, EventArgs e)
+        {
+            //consumer.Open(string);
+        }
+
+        private void CloseConnectionButton_Click(object sender, EventArgs e)
+        {
+            //consumer.Close();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            string name = Dns.GetHostName();
+            var dnsAdresses = Dns.GetHostEntry(name).AddressList;
+
+            listBox1.BeginUpdate();
+            for (int x = 1; x <= dnsAdresses.Length; x++) {
+                listBox1.Items.Add(dnsAdresses[x - 1]);
+            }
+            listBox1.EndUpdate();
+        }
+        private void listBox1_MouseLeave(object sender, EventArgs e)
+        {
+            //listBox1.Refresh();
         }
     }
 }

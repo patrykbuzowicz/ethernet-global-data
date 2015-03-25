@@ -47,6 +47,9 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lbLastUpdated = new System.Windows.Forms.Label();
+            this.OpenConnetionButton = new System.Windows.Forms.Button();
+            this.CloseConnectionButton = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -267,16 +270,49 @@
             this.lbLastUpdated.TabIndex = 2;
             this.lbLastUpdated.Text = "Last Updated";
             // 
+            // OpenConnetionButton
+            // 
+            this.OpenConnetionButton.Location = new System.Drawing.Point(321, 46);
+            this.OpenConnetionButton.Name = "OpenConnetionButton";
+            this.OpenConnetionButton.Size = new System.Drawing.Size(75, 23);
+            this.OpenConnetionButton.TabIndex = 4;
+            this.OpenConnetionButton.Text = "Open";
+            this.OpenConnetionButton.UseVisualStyleBackColor = true;
+            this.OpenConnetionButton.Click += new System.EventHandler(this.OpenConnectionButton_Click);
+            // 
+            // CloseConnectionButton
+            // 
+            this.CloseConnectionButton.Location = new System.Drawing.Point(428, 46);
+            this.CloseConnectionButton.Name = "CloseConnectionButton";
+            this.CloseConnectionButton.Size = new System.Drawing.Size(75, 23);
+            this.CloseConnectionButton.TabIndex = 5;
+            this.CloseConnectionButton.Text = "Close";
+            this.CloseConnectionButton.UseVisualStyleBackColor = true;
+            this.CloseConnectionButton.Click += new System.EventHandler(this.CloseConnectionButton_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(106, 61);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 95);
+            this.listBox1.TabIndex = 6;
+            this.listBox1.MouseLeave += new System.EventHandler(this.listBox1_MouseLeave);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(575, 315);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.CloseConnectionButton);
+            this.Controls.Add(this.OpenConnetionButton);
             this.Controls.Add(this.lbLastUpdated);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Konsument";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -305,6 +341,9 @@
         private System.Windows.Forms.CheckBox checkBox9;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lbLastUpdated;
+        private System.Windows.Forms.Button OpenConnetionButton;
+        private System.Windows.Forms.Button CloseConnectionButton;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 
