@@ -46,7 +46,7 @@ namespace EGD.UserInterface
         private void UpdateOutput(EgdPacket egdPacket)
         {
             byte[] b = new byte[]{1,2,3,4};
-            if (Parser.SetAndParseRawData(b))
+            if (Parser.SetAndParseRawData(egdPacket.Data)) 
         //    if (Parser.SetAndParseRawData(egdPacket.getPacket()))
             {
                 this.textBox1.Text = Parser.getDWord();
