@@ -76,40 +76,44 @@ namespace EGD.UserInterface
             lbLastUpdated.Text = string.Format("Last updated: {0}", DateTime.Now.ToString("HH:mm:ss.ffff"));
         }
 
-        // Method responsible for opening UDP connection with selected (in listBox) IP
+        // Method responsible for opening UDP connection with selected (in listBox) IP.
         private void OpenConnectionButton_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedItem == null)
-            {
                 MessageBox.Show("You have to choose IP address before trying to open connection");
-            } else
-                consumer.Open(listBox1.SelectedItem.ToString());  
+            else 
+            {
+                consumer.Open(listBox1.SelectedItem.ToString());
+                OpenConnetionButton.Enabled = false;
+                CloseConnectionButton.Enabled = true;
+            }            
         }
 
         // Method responsible for closing UDP connection.
         private void CloseConnectionButton_Click(object sender, EventArgs e)
         {
             consumer.Close();
+            CloseConnectionButton.Enabled = false;
+            OpenConnetionButton.Enabled = true;
         }
 
         // Method responsible for getting available IP addresses during first load of application.
         // Addresses are added to listBox1.
         private void Form1_Load(object sender, EventArgs e)
         {
-            string name = Dns.GetHostName();
-            var dnsAdresses = Dns.GetHostEntry(name).AddressList;
+            IPHostEntry host;
+            string localIP;
+            host = Dns.GetHostEntry(Dns.GetHostName());
 
-            listBox1.BeginUpdate();
-            for (int x = 2; x < dnsAdresses.Length; x = x + 2) 
+            foreach (IPAddress ip in host.AddressList)
             {
-                listBox1.Items.Add(dnsAdresses[x]);
+                if (ip.AddressFamily.ToString() == "InterNetwork")
+                {
+                    localIP = ip.ToString();
+                    listBox1.Items.Add(localIP);
+                }
             }
-            listBox1.EndUpdate();
+            CloseConnectionButton.Enabled = false;
         }
-        
-        /*private void listBox1_MouseLeave(object sender, EventArgs e)
-        {
-            listBox1.RefreshItems();
-        }*/
     }
 }
